@@ -28,7 +28,8 @@ class SubjectStore extends FormRequest
             'name' => [
                 'required',
                 'min:2',
-                'max:45'
+                'max:45',
+                'unique:subjects'
 
                 ]
         ];
