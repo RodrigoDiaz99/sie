@@ -63,4 +63,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function Subjects()
+    {
+        return $this->belongsToMany(Subjects::class);
+    }
+    public function Score()
+    {
+        return $this->belongsToMany(Score::class);
+    }
 }

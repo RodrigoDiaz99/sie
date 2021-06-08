@@ -32,7 +32,7 @@
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
 
-                                    @foreach($subject->Score() as $row)
+                                    @foreach($subject as $row)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
@@ -44,7 +44,7 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold"> {{dd($row->parcial1)}}</div>
+                                                    <div class="text-sm font-semibold"> {{$row->Score}}</div>
                                                 </div>
                                             </div>
                                         </td>

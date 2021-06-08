@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\StudentStore;
+use App\Models\Score;
 use App\Models\students;
 use App\Models\Subjects;
 use Illuminate\Http\Request;
@@ -102,7 +103,7 @@ class StudentsController extends Controller
     public function loadSubject(Request $request, $id)
     {
         $subject_id = $request->subject;
-        $student = students::findOrFail($id);
+        $student = User::findOrFail($id);
         $student->subject_id=$request->subject_id;
         return redirect()->route('dashboard');
 
@@ -111,7 +112,10 @@ class StudentsController extends Controller
     public function score($id)
     {
         $subject = Subjects::orderBy('name', 'asc')->get();
-
-        return view('students.studentScore',compact('subject'));
+        $score1 = Score::orderBy('parcial1', 'asc')->get();
+        $score2= Score::orderBy('parcial1', 'asc')->get();
+        $score3 = Score::orderBy('parcial1','asc')->get();
+        $score4 = Score::orderBy('parcial1', 'asc')->get();
+        return view('students.studentScore',compact('subject','score1','score2','score3','score4'));
     }
 }

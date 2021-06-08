@@ -10,8 +10,5 @@ class Students extends Model
     use HasFactory;
     protected $table = 'users';
 
-    public function Subjects()
-    {
-        return $this->belongsToMany(Subjects::class);
-    }
+
 }
