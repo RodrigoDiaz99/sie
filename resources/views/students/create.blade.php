@@ -6,7 +6,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('registro.store') }}">
             @csrf
             <div class="mt-4">
                 <x-jet-label for="enrollment" value="{{ __('Matricula') }}" />
