@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
-use Laravel\Jetstream\Jetstream;
 
 class StudentsController extends Controller
 {
@@ -97,7 +95,7 @@ class StudentsController extends Controller
 
     public function subjects($id)
     {
-    
+
         $subject = Subjects::orderBy('name', 'asc')->get();
         return view('students.studentSubject', compact('subject'));
     }
@@ -106,7 +104,7 @@ class StudentsController extends Controller
     {
         $subject_id = $request->subject;
         $student = students::findOrFail($id);
-        $student->Subjects()->attach($subject_id);
+        $student->subject_id=$request->subject_id;
         return redirect()->route('dashboard');
 
     }
