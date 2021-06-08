@@ -7,7 +7,7 @@ use App\Http\Requests\StudentStore;
 use App\Models\Score;
 use App\Models\students;
 use App\Models\Subject;
-use App\Models\Subjects;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -109,16 +109,16 @@ class StudentsController extends Controller
 
     public function loadSubject(Request $request, $id)
     {
-        $subject_id = $request->subject;
-        $student = User::findOrFail($id);
-        $student->subject_id = $request->subject_id;
+        $subject = Subject::findOrFail($id);
+        $subject->user_id = Auth::user()->id;
+        $subject->update();
         return redirect()->route('dashboard');
     }
 
-    public function score()
+    public function score($id)
     {
-        $subject = Subject::orderBy('name', 'asc')->get();
-        $score1 = Score::orderBy('parcial1', 'desc')->get();
-        return view('students.studentScore', compact('subject', 'score1'));
+        $subject = Subject::where('user_id', $id)->firstOrFail();
+        $score  = Score::findOrFail($id);
+        return view('students.studentScore', compact('subject', 'score'));
     }
 }

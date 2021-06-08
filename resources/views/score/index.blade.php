@@ -50,16 +50,13 @@
                                             <div class="btn-group-py">
                                                 <div class="inline-flex items-center">
 
-                                                    <a href="" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Ver</a>
+                                                    <a href="{{ route('studentScore',$row->id) }}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Ver</a>
                                                     @role('Admin')
                                                     <form action="" method="POST">
                                                         @csrf
-                                                        @method('DELETE')
-                                                        <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar
 
-                                                        </button>
                                                     </form>
-@endrole
+                                                    @endrole
                                                 </div>
                                             </div>
                                         </td>
