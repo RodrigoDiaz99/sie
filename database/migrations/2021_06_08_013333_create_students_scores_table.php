@@ -15,8 +15,10 @@ class CreateStudentsScoresTable extends Migration
     {
         Schema::create('students_scores', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('students_id')->constrained()->on('users');
-            $table->foreignId('scores_id')->constrained();
+            $table->foreignId('users_id');
+            $table->foreignId('scores_id');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('scores_id')->references('id')->on('scores');
             $table->timestamps();
         });
     }

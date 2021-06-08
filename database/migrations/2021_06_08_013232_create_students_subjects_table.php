@@ -15,8 +15,13 @@ class CreateStudentsSubjectsTable extends Migration
     {
         Schema::create('students_subjects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('students_id')->constrained()->on('users');
-            $table->foreignId('subjects_id')->constrained();
+            $table->foreignId('users_id');
+            $table->foreignId('subjects_id');
+
+
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('subjects_id')->references('id')->on('subjects');
+
             $table->timestamps();
         });
     }
