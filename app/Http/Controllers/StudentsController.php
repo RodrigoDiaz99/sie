@@ -7,6 +7,7 @@ use App\Http\Requests\StudentStore;
 use App\Models\Score;
 use App\Models\students;
 use App\Models\Subjects;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -117,5 +118,8 @@ class StudentsController extends Controller
         $score3 = Score::orderBy('parcial1','asc')->get();
         $score4 = Score::orderBy('parcial1', 'asc')->get();
         return view('students.studentScore',compact('subject','score1','score2','score3','score4'));
+       ///////////// $subject = score::all();
+
+
     }
 }

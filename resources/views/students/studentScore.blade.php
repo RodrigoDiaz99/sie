@@ -37,7 +37,7 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold">{{$row->name}} </div>
+                                                    <div class="text-sm font-semibold">{{$row->subjects->name}} </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -47,11 +47,11 @@
                                                     <div class="text-sm font-semibold"> {{$row->Score}}</div>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold"> {{$row->parcial2 }}</div>
+                                                    <div class="text-sm font-semibold"> {{$row->parcial2}}</div>
                                                 </div>
                                             </div>
                                         </td>
