@@ -9,12 +9,7 @@
                     <p class="small text-center"></p>
 
 
-                    <div class="btn-group py-2">
-                        <a href="{{route('registro.create')}}" class="bg-transparent hover:bg-green-400 text-green-500 font-semibold hover:text-white py-2 px-4 border border-green-400 hover:border-transparent rounded">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span>Añadir Alumno</span>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div></div>
