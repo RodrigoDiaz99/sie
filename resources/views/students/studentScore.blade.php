@@ -41,37 +41,41 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        @foreach ($score1 as $row2 )
+                                        @if($row2->id == $row->id)
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
-                                               @foreach ($score1 as $row )
-                                               <div>
-                                                <div class="text-sm font-semibold">{{$row->parcial1}} </div>
-                                            </div>
-                                               @endforeach
+
+                                                <div>
+                                                    <div class="text-sm font-semibold">{{$row2->parcial1}} </div>
+                                                </div>
+
 
                                             </div>
-                                        </td
+                                        </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold"> {{$row->parcial2}}</div>
+                                                    <div class="text-sm font-semibold"> {{$row2->parcial2}}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold"> SCORE</div>
+                                                    <div class="text-sm font-semibold"> {{$row2->parcial3}}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold"> SCORE</div>
+                                                    <div class="text-sm font-semibold"> {{$row2->parcial4}}</div>
                                                 </div>
                                             </div>
                                         </td>
+                                        @endif
+                                        @endforeach
                                     </tr>
                                     @endforeach
                                 </tbody>
