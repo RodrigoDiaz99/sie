@@ -28,7 +28,7 @@ class StudentStore extends FormRequest
     public function rules()
     {
         return [
-            'enrollment' => ['string', 'max:255'],
+            'enrollment' => ['required','string', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'semester' => ['string', 'max:255'],
             'career' => ['string', 'max:255'],
