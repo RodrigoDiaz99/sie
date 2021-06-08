@@ -23,8 +23,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/studentSubject/{id}', 'StudentsController@subjects')->name('studentSubject');
+Route::post('/studentSubject/loadSubject/{id}', 'StudentsController@loadSubject')->name('loadSubject');
 
 Route::get('/studentScore/{id}', 'StudentsController@score')->name('studentScore');
+Route::post('/studentScore/{id}', 'StudentsController@score')->name('studentScore');
 
 
 Route::resource('registro', StudentsController::class);

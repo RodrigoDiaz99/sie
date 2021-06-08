@@ -35,14 +35,14 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        $subject = Subjects::orderBy('name','asc')->get();
-return view('students.create',compact('subject'));
+        $subject = Subjects::orderBy('name', 'asc')->get();
+        return view('students.create', compact('subject'));
     }
 
 
     public function store(StudentStore $request)
     {
-         User::create([
+        User::create([
             'enrollment' => $request->enrollment,
             'name' => $request->name,
             'semester' => $request->semester,
@@ -94,14 +94,25 @@ return view('students.create',compact('subject'));
         //
     }
 
-    public function subjects($id){
+    public function subjects($id)
+    {
+    
+        $subject = Subjects::orderBy('name', 'asc')->get();
+        return view('students.studentSubject', compact('subject'));
+    }
 
-        return view('students.studentScore');
+    public function loadSubject(Request $request, $id)
+    {
+        $subject_id = $request->subject;
+        $student = students::findOrFail($id);
+        $student->Subjects()->attach($subject_id);
+        return redirect()->route('dashboard');
 
     }
 
-    public function score($id){
-        return view('students.studentScore');
-
+    public function score($id)
+    {
+        $subject = Subjects::orderBy('name', 'asc')->get();
+        return view('students.studentScore',compact('subject'));
     }
 }

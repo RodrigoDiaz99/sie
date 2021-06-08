@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubjectScoreTable extends Migration
+class CreateStudentsScoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSubjectScoreTable extends Migration
      */
     public function up()
     {
-        Schema::create('subject_score', function (Blueprint $table) {
+        Schema::create('students_scores', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('score_id')->constrained();
-            $table->foreignId('subject_id')->constrained();
+            $table->foreignId('students_id')->constrained()->on('users');
+            $table->foreignId('scores_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateSubjectScoreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject_score');
+        Schema::dropIfExists('student_score');
     }
 }

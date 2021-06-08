@@ -38,7 +38,7 @@
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
 
-@foreach ( $subject as $row )
+                                    @foreach ( $subject as $row )
 
 
 
@@ -75,7 +75,7 @@
                                             </div>
                                         </td>
                                     </tr>
-@endforeach
+                                    @endforeach
 
                                 </tbody>
                             </table>
