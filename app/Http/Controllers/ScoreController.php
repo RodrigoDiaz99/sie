@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Score;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ScoreController extends Controller
@@ -13,8 +14,9 @@ class ScoreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {    $users = User::all();
+                return view('score.index', compact('users'));
+
     }
 
     /**

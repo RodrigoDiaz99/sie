@@ -50,12 +50,6 @@
                     name="password_confirmation" required autocomplete="new-password" />
             </div>
             <div class="flex flex-col">
-                @foreach ($subject as row )
-                <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" checked><span class="ml-2 text-gray-700">{{$row->name}}</span>
-                </label>
-@endforeach
-
 
 
 
