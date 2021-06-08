@@ -21,8 +21,13 @@
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
                                             Materia</th>
                                         <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
-                                            Calificación</th>
-
+                                            Parcial 1</th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Parcial 2</th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Parcial 3</th>
+                                        <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 uppercase dark:text-primary-light">
+                                            Parcial 4</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white rounded-md dark:bg-darker mt-4 mb-4 ">
@@ -33,6 +38,27 @@
                                             <div class="flex items-center">
                                                 <div>
                                                     <div class="text-sm font-semibold">{{$row->name}} </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold"> {{(dd($row->Score->parcial1))}}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold"> {{$row->parcial2 }}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="text-sm font-semibold"> SCORE</div>
                                                 </div>
                                             </div>
                                         </td>

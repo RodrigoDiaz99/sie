@@ -113,6 +113,7 @@ class StudentsController extends Controller
     public function score($id)
     {
         $subject = Subjects::orderBy('name', 'asc')->get();
+       
         return view('students.studentScore',compact('subject'));
     }
 }

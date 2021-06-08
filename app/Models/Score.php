@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Score extends Model
 {
     use HasFactory;
+
+    public function Subject()
+    {
+        return $this->belongsToMany(Subject::class);
+    }
 }
+
+
