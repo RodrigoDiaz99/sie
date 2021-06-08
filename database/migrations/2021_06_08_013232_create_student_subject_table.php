@@ -15,7 +15,7 @@ class CreateStudentSubjectTable extends Migration
     {
         Schema::create('student_subject', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('subject_id')->constrained();
             $table->timestamps();
         });
