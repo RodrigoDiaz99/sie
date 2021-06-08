@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubjectStore;
+use App\Models\Subject;
 use App\Models\Subjects;
 use Illuminate\Http\Request;
 use Livewire\Request as LivewireRequest;
@@ -21,7 +22,7 @@ class SubjectsController extends Controller
      */
     public function index()
     {
-        $subject =Subjects::all();
+        $subject =Subject::all();
         return view('subjects.index',compact('subject'));
     }
 
@@ -43,7 +44,7 @@ class SubjectsController extends Controller
      */
     public function store(SubjectStore $request)
     {
-        $subject = new Subjects();
+        $subject = new Subject();
         $subject->name= $request->name;
         $subject->save();
         return redirect()->route('subject.index');

@@ -37,15 +37,18 @@
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="text-sm font-semibold">{{$row->subjects->name}} </div>
+                                                    <div class="text-sm font-semibold">{{$row->name}} </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                             <div class="flex items-center">
-                                                <div>
-                                                    <div class="text-sm font-semibold"> {{$row->Score}}</div>
-                                                </div>
+                                               @foreach ($score1 as $row )
+                                               <div>
+                                                <div class="text-sm font-semibold">{{$row->parcial1}} </div>
+                                            </div>
+                                               @endforeach
+
                                             </div>
                                         </td
                                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">

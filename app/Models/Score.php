@@ -15,14 +15,14 @@ class Score extends Model
         'parcial4'
     ];
 
-    public function Subject()
+    public function subject()
     {
-        return $this->belongsToMany(Subject::class,'score_subjects');
+        return $this->belongsTo(Subject::class);
     }
 
-    public function Score()
+    public function score()
     {
-        return $this->belongsToMany(Score::class);
+        return $this->hasMany(User::class);
     }
 }
 

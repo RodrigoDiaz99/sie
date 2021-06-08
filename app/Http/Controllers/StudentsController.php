@@ -6,8 +6,9 @@ use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\StudentStore;
 use App\Models\Score;
 use App\Models\students;
+use App\Models\Subject;
 use App\Models\Subjects;
-use App\Models\Score;
+
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -22,6 +23,11 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $users = User::all();
@@ -35,7 +41,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        $subject = Subjects::orderBy('name', 'asc')->get();
+        $subject = Subject::orderBy('name', 'asc')->get();
         return view('students.create', compact('subject'));
     }
 
@@ -97,7 +103,7 @@ class StudentsController extends Controller
     public function subjects($id)
     {
 
-        $subject = Subjects::orderBy('name', 'asc')->get();
+        $subject = Subject::orderBy('name', 'asc')->get();
         return view('students.studentSubject', compact('subject'));
     }
 
@@ -110,15 +116,17 @@ class StudentsController extends Controller
 
     }
 
-    public function score($id)
+    public function score()
     {
-        $subject = Subjects::orderBy('name', 'asc')->get();
-        $score1 = Score::orderBy('parcial1', 'asc')->get();
-        $score2= Score::orderBy('parcial1', 'asc')->get();
-        $score3 = Score::orderBy('parcial1','asc')->get();
-        $score4 = Score::orderBy('parcial1', 'asc')->get();
-        return view('students.studentScore',compact('subject','score1','score2','score3','score4'));
-       ///////////// $subject = score::all();
+      $subject = Subject::orderBy('name', 'asc')->get();
+   // $score = Score::all();
+     $score1 = Score::orderBy('parcial1', 'desc')->get();
+     /*   $score2= Score::orderBy('parcial2', 'asc')->get();
+        $score3 = Score::orderBy('parcial3','asc')->get();
+        $score4 = Score::orderBy('parcial4', 'asc')->get();*/
+        //return view('students.studentScore',compact('subject','score1','score2','score3','score4'));
+        return view('students.studentScore',compact('subject','score1'));
+      //// ///////// $subject = score::all();
 
 
     }

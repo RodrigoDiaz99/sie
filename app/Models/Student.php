@@ -11,6 +11,11 @@ class Student extends Model
     protected $table = 'users';
 
 
+    public function score()
+    {
+        return $this->belongsToMany(Score::class);
+    }
+
     public function Subjects()
     {
         return $this->belongsToMany(Subjects::class,'students_subjects', 'user_id', 'subject_id');

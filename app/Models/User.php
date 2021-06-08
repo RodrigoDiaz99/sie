@@ -64,12 +64,17 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function Subjects()
+   /*public function Subjects()
     {
         return $this->belongsToMany(Subjects::class);
-    }
-    public function Score()
+    }*/
+    public function score()
     {
         return $this->belongsToMany(Score::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsToMany(Subjects::class);
     }
 }
