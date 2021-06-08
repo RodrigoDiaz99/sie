@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\StudentStore;
 use App\Models\students;
-
+use App\Models\Subjects;
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -35,7 +35,8 @@ class StudentsController extends Controller
      */
     public function create()
     {
-return view('students.create');
+        $subject = Subjects::orderBy('name','asc')->get();
+return view('students.create',compact('subject'));
     }
 
 
