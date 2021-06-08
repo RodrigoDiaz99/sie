@@ -41,7 +41,16 @@ return view('students.create');
 
     public function store(StudentStore $request)
     {
-
+         User::create([
+            'enrollment' => $request->enrollment,
+            'name' => $request->name,
+            'semester' => $request->semester,
+            'career' => $request->career,
+            'number' => $request->number,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ])->assignRole('Student');
+        return redirect()->route('registro.index');
     }
 
 
