@@ -6,6 +6,7 @@ use App\Actions\Fortify\PasswordValidationRules;
 use App\Http\Requests\StudentStore;
 use App\Models\students;
 use App\Models\Subjects;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -112,7 +113,7 @@ class StudentsController extends Controller
 
     public function score($id)
     {
-        $subject = Subjects::orderBy('name', 'asc')->get();
+        $subject = score::all();
        
         return view('students.studentScore',compact('subject'));
     }

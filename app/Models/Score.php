@@ -11,7 +11,7 @@ class Score extends Model
 
     public function Subject()
     {
-        return $this->belongsToMany(Subject::class);
+        return $this->belongsToMany(Subject::class,'score_subjects');
     }
 }
 

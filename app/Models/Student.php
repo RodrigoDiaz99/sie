@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Students extends Model
+class Student extends Model
 {
     use HasFactory;
     protected $table = 'users';
 
     public function Subjects()
     {
-        return $this->belongsToMany(Subjects::class);
+        return $this->belongsToMany(Subjects::class,'students_subjects', 'user_id', 'subject_id');
     }
 }
