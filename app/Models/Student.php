@@ -13,11 +13,11 @@ class Student extends Model
 
     public function score()
     {
-        return $this->belongsToMany(Score::class);
+        return $this->belongsTo(Score::class);
     }
 
     public function Subjects()
     {
-        return $this->belongsToMany(Subjects::class,'students_subjects', 'user_id', 'subject_id');
+        return $this->belongsTo(Subjects::class);
     }
 }

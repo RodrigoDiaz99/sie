@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SubjectStore;
 use App\Models\Subject;
-use App\Models\Subjects;
+use App\Models\Score;
+use Auth;
 use Illuminate\Http\Request;
 use Livewire\Request as LivewireRequest;
 
@@ -14,7 +15,6 @@ class SubjectsController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +22,9 @@ class SubjectsController extends Controller
      */
     public function index()
     {
-        $subject =Subject::all();
-        return view('subjects.index',compact('subject'));
+        $subject = Subject::all();
+        return view('subjects.index', compact('subject'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +34,6 @@ class SubjectsController extends Controller
     {
         return view('subjects.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -45,22 +43,30 @@ class SubjectsController extends Controller
     public function store(SubjectStore $request)
     {
         $subject = new Subject();
-        $subject->name= $request->name;
+
+        $score = new Score();
+        $score->parcial1 = 0;
+        $score->parcial2 = 0;
+        $score->parcial3 = 0;
+        $score->parcial4 = 0;
+        $score->save();
+
+        $subject->name = $request->name;
+        $subject->score_id = $score->id;
+        $subject->user_id = Auth::user()->id;
         $subject->save();
         return redirect()->route('subject.index');
     }
-
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Subjects  $subjects
      * @return \Illuminate\Http\Response
      */
-    public function show(Subjects $subjects)
+    public function show(Subject $subjects)
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,10 +75,9 @@ class SubjectsController extends Controller
      */
     public function edit($id)
     {
-        $subject = Subjects::findOrFail($id);
-        return view('subjects.edit',compact('subject'));
+        $subject = Subject::findOrFail($id);
+        return view('subjects.edit', compact('subject'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -82,12 +87,11 @@ class SubjectsController extends Controller
      */
     public function update(SubjectStore $request, $id)
     {
-        $subject = Subjects::findOrFail($id);
-        $subject->name= $request->name;
+        $subject = Subject::findOrFail($id);
+        $subject->name = $request->name;
         $subject->update();
         return redirect()->route('subject.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *

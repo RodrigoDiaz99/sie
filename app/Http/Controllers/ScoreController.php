@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Score;
 use App\Models\User;
+use App\Models\Subject;
 use Illuminate\Http\Request;
+use Auth;
 
 class ScoreController extends Controller
 {
@@ -14,9 +16,9 @@ class ScoreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    $users = User::all();
-                return view('score.index', compact('users'));
-
+    {
+        $users = User::all();
+        return view('score.index', compact('users'));
     }
 
     /**
@@ -26,7 +28,8 @@ class ScoreController extends Controller
      */
     public function create()
     {
-        return view('score.create');
+        $subject = Subject::all();
+        return view('score.create', compact('subject'));
     }
 
     /**
@@ -37,7 +40,6 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -57,9 +59,11 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function edit(Score $score)
+    public function edit($score)
     {
-        //
+        $score = Score::findOrFail($score);
+        $subject = Subject::all();
+        return view('score.edit', compact('score', 'subject'));
     }
 
     /**
@@ -69,9 +73,15 @@ class ScoreController extends Controller
      * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Score $score)
+    public function update(Request $request, $score)
     {
-        //
+        $score = Score::findOrFail($score);
+        $score->parcial1    = $request->parcial1;
+        $score->parcial2    = $request->parcial2;
+        $score->parcial3    = $request->parcial3;
+        $score->parcial4    = $request->parcial4;
+        $score->update();
+        return redirect()->route('studentScore', Auth::user()->id)->with('succes', 'actualizada');
     }
 
     /**

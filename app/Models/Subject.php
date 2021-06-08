@@ -14,11 +14,11 @@ class Subject extends Model
     ];
     public function score()
     {
-        return $this->belongsToMany(Score::class,'subjects_scores', 'subject_id','score_id');
+        return $this->belongsTo(Score::class);
     }
 
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }

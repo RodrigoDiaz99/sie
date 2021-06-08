@@ -111,23 +111,14 @@ class StudentsController extends Controller
     {
         $subject_id = $request->subject;
         $student = User::findOrFail($id);
-        $student->subject_id=$request->subject_id;
+        $student->subject_id = $request->subject_id;
         return redirect()->route('dashboard');
-
     }
 
     public function score()
     {
-      $subject = Subject::orderBy('name', 'asc')->get();
-   // $score = Score::all();
-     $score1 = Score::orderBy('parcial1', 'desc')->get();
-     /*   $score2= Score::orderBy('parcial2', 'asc')->get();
-        $score3 = Score::orderBy('parcial3','asc')->get();
-        $score4 = Score::orderBy('parcial4', 'asc')->get();*/
-        //return view('students.studentScore',compact('subject','score1','score2','score3','score4'));
-        return view('students.studentScore',compact('subject','score1'));
-      //// ///////// $subject = score::all();
-
-
+        $subject = Subject::orderBy('name', 'asc')->get();
+        $score1 = Score::orderBy('parcial1', 'desc')->get();
+        return view('students.studentScore', compact('subject', 'score1'));
     }
 }

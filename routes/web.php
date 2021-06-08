@@ -28,7 +28,6 @@ Route::post('/studentSubject/loadSubject/{id}', 'StudentsController@loadSubject'
 Route::get('/studentScore/{id}', 'StudentsController@score')->name('studentScore');
 Route::post('/studentScore/{id}', 'StudentsController@score')->name('studentScore');
 
-
 Route::resource('registro', 'StudentsController');
 Route::resource('subject', SubjectsController::class);
 Route::resource('Score', ScoreController::class);
