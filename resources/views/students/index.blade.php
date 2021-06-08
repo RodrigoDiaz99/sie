@@ -91,13 +91,13 @@
                                             <div class="btn-group-py">
                                                 <div class="inline-flex items-center">
                                                     <a href="{{route('Score.create')}}" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Calificar</a>
-                                                    <form action="" method="POST">
+                                                    {{--<form action="" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Eliminar
 
                                                         </button>
-                                                    </form>
+                                                    </form>--}}
 
                                                 </div>
                                             </div>
