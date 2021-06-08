@@ -93,4 +93,15 @@ return view('students.create',compact('subject'));
     {
         //
     }
+
+    public function subjects($id){
+
+        return view('students.studentScore');
+
+    }
+
+    public function score($id){
+        return view('students.studentScore');
+
+    }
 }
