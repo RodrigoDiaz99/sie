@@ -15,8 +15,10 @@ class CreateSubjectsScoresTable extends Migration
     {
         Schema::create('subjects_scores', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subjects_id')->constrained();
-            $table->foreignId('scores_id')->constrained();
+            $table->foreignId('subjects_id')->constrained('subjects_id');
+            $table->foreignId('scores_id')->constrained('scores_id');
+
+
             $table->timestamps();
         });
     }
