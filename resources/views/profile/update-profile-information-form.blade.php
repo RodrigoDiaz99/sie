@@ -53,11 +53,21 @@
         @endif
 
         <!-- Name -->
+        @role('Admin')
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="enrollment" value="{{ __('Matricula') }}" />
-            <x-jet-input id="enrollment" type="text" class="mt-1 block w-full" wire:model.defer="state.enrollment" readonly/>
+            <x-jet-input id="enrollment" type="text" class="mt-1 block w-full" wire:model.defer="state.enrollment" />
             <x-jet-input-error for="enrollment" class="mt-2" />
         </div>
+        @endrole
+        @role('Student')
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="enrollment" value="{{ __('Matricula') }}" />
+            <x-jet-input id="enrollment" type="text" class="mt-1 block w-full" wire:model.defer="state.enrollment" readonly />
+            <x-jet-input-error for="enrollment" class="mt-2" />
+        </div>
+
+        @endrole
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
@@ -70,7 +80,7 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
-
+@role('Admin')
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Carrera') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.career" />
@@ -81,6 +91,19 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.semester" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+        @endrole
+        @role('Student')
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="email" value="{{ __('Carrera') }}" />
+            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.career" readonly/>
+            <x-jet-input-error for="email" class="mt-2" />
+        </div>
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="email" value="{{ __('Semestre') }}" />
+            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.semester" readonly />
+            <x-jet-input-error for="email" class="mt-2" />
+        </div>
+        @endrole
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Numero de Telefono') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.number" />
